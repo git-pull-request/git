@@ -40,6 +40,9 @@ Usage
 use Git\Git\Git;
 
 $git = new Git;
+// git add file1 file2
+$git->add(['file1', 'file2']);
+
 // git branch branch-name HEAD
 $git->createBranch('branch-name') : bool;
 // git branch branch-name master
@@ -64,6 +67,9 @@ $git->checkout('my-existing-branch') : bool;
 $git->cloneRepository('git@github.com:git-pull-request/git.git') : bool;
 // git clone git@github.com:git-pull-request/git.git directory
 $git->cloneRepository('git@github.com:git-pull-request/git.git', 'directory', '') : bool;
+
+// git commit -m "My commit message"
+$git->commit('My commit message');
 
 // git pull origin master
 $git->pull('origin', 'master') : bool;
