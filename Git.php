@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace GitPullRequest\Git;
 
 use GitPullRequest\Git\GitCommand\BranchTrait;
+use GitPullRequest\Git\GitCommand\CheckoutTrait;
 use GitPullRequest\Git\GitCommand\TagTrait;
 
 /**
@@ -22,5 +23,6 @@ use GitPullRequest\Git\GitCommand\TagTrait;
 final class Git
 {
     use BranchTrait;
+    use CheckoutTrait;
     use TagTrait;
 }

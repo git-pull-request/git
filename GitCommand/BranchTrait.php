@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace GitPullRequest\Git\GitCommand;
 
-use Exception;
 use GitPullRequest\Git\Exception\RuntimeException;
-use Symfony\Component\Process\Process;
 
 /**
  * PHP abstraction of the <code>git branch</code> command.
  */
 trait BranchTrait
 {
+    use RunCommandTrait;
+
     /**
      * @param string $branchName
      * @param string $startingPoint
@@ -32,7 +32,7 @@ trait BranchTrait
      */
     public function createBranch(string $branchName, string $startingPoint = 'HEAD') : bool
     {
-        return $this->manageBranch(sprintf('git branch "%s" "%s"', $branchName, $startingPoint));
+        return $this->runCommandSilently(sprintf('git branch "%s" "%s"', $branchName, $startingPoint));
     }
 
     /**
@@ -45,7 +45,7 @@ trait BranchTrait
      */
     public function deleteBranch(string $branchName, bool $hardDelete = false) : bool
     {
-        return $this->manageBranch(sprintf('git branch %s %s', $hardDelete ? '-D' : '--delete', $branchName));
+        return $this->runCommandSilently(sprintf('git branch %s %s', $hardDelete ? '-D' : '--delete', $branchName));
     }
 
     /**
@@ -81,25 +81,6 @@ trait BranchTrait
     }
 
     /**
-     * @param string $commandLine
-     *
-     * @throws RuntimeException
-     * 
-     * @return bool
-     */
-    private function manageBranch(string $commandLine) : bool
-    {
-        try {
-            $process = new Process($commandLine);
-            $process->mustRun();
-        } catch (Exception $exception) {
-            throw new RuntimeException($exception->getMessage(), 0, $exception);
-        }
-
-        return $process->isSuccessful();
-    }
-
-    /**
      * @param string $option
      * @param string $pattern
      *
@@ -109,14 +90,7 @@ trait BranchTrait
      */
     private function listBranches(string $option, string $pattern = '') : array
     {
-        $commandLine = sprintf('git branch --no-column --no-color %s %s', $option, $pattern);
-        try {
-            $process = new Process($commandLine);
-            $process->mustRun();
-            $output = $process->getOutput();
-        } catch (Exception $exception) {
-            throw new RuntimeException($exception->getMessage(), 0, $exception);
-        }
+        $output = $this->runCommand(sprintf('git branch --no-column --no-color %s %s', $option, $pattern));
 
         $branches = explode(PHP_EOL, $output);
         $result   = [];
