@@ -57,6 +57,9 @@ $git->listLocalBranches('branch*') : array;
 // git branch --remotes
 $git->listRemoteBranches() : array;
 
+// git checkout my-existing-branch
+$git->checkout('my-existing-branch');
+
 // git tag
 $git->getTags(); // ex: return [new Version(1, 0, 0), new Version(1, 1, 0)];
 $git->getLastTag(); // ex: return new Version(1, 0, 0);
