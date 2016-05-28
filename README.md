@@ -30,3 +30,18 @@ version.
 
 We try to have as fewer dependencies as possible.  
 If you can not use this project because of its library dependencies, please open an issue.
+
+**The `git tag` commands will assume all your tags to be valid [Semantic Versioning](http://semver.org)**
+
+Usage
+-----
+
+```php
+use Git\Git\Git;
+
+$git = new Git;
+// git tag
+$git->getTags(); // ex: return [new Version(1, 0, 0), new Version(1, 1, 0)];
+$git->getLastTag(); // ex: return new Version(1, 0, 0);
+
+```
