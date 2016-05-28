@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace GitPullRequest\Git;
 
+use GitPullRequest\Git\GitCommand\AddTrait;
 use GitPullRequest\Git\GitCommand\BranchTrait;
 use GitPullRequest\Git\GitCommand\CheckoutTrait;
 use GitPullRequest\Git\GitCommand\CloneTrait;
@@ -26,8 +27,8 @@ use GitPullRequest\Git\GitCommand\TagTrait;
  */
 final class Git
 {
-    use RunCommandTrait, BranchTrait, CheckoutTrait, CloneTrait, PullTrait, RevParseTrait, TagTrait {
-        RunCommandTrait::runCommand insteadof BranchTrait, CheckoutTrait, CloneTrait, PullTrait, RevParseTrait, TagTrait;
-        RunCommandTrait::runCommandSilently insteadof BranchTrait, CheckoutTrait, CloneTrait, PullTrait, RevParseTrait, TagTrait;
+    use RunCommandTrait, AddTrait, BranchTrait, CheckoutTrait, CloneTrait, PullTrait, RevParseTrait, TagTrait {
+        RunCommandTrait::runCommand insteadof AddTrait, BranchTrait, CheckoutTrait, CloneTrait, PullTrait, RevParseTrait, TagTrait;
+        RunCommandTrait::runCommandSilently insteadof AddTrait, BranchTrait, CheckoutTrait, CloneTrait, PullTrait, RevParseTrait, TagTrait;
     }
 }
