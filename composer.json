@@ -1,0 +1,36 @@
+{
+    "name": "git-pull-request/git",
+    "type": "library",
+    "description": "The git command line for PHP",
+    "keywords": [],
+    "homepage": "https://git-scm.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Julien Dufresne",
+            "email": "github@dfrsn.me"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "symfony/process": "^2.7 || ^3.0",
+        "semver/semver": "^1.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "2.0.x-dev",
+        "phpmetrics/phpmetrics": "^1.10",
+        "phpunit/phpunit": "^5.3",
+        "satooshi/php-coveralls": "^1.0",
+        "symfony/var-dumper": "^3.0",
+        "symfony/filesystem": "^3.0"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "GitPullRequest\\Git\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    }
+}
