@@ -18,6 +18,7 @@ use GitPullRequest\Git\GitCommand\CheckoutTrait;
 use GitPullRequest\Git\GitCommand\CloneTrait;
 use GitPullRequest\Git\GitCommand\PullTrait;
 use GitPullRequest\Git\GitCommand\RevParseTrait;
+use GitPullRequest\Git\GitCommand\RunCommandTrait;
 use GitPullRequest\Git\GitCommand\TagTrait;
 
 /**
@@ -25,10 +26,8 @@ use GitPullRequest\Git\GitCommand\TagTrait;
  */
 final class Git
 {
-    use BranchTrait;
-    use CheckoutTrait;
-    use CloneTrait;
-    use PullTrait;
-    use RevParseTrait;
-    use TagTrait;
+    use RunCommandTrait, BranchTrait, CheckoutTrait, CloneTrait, PullTrait, RevParseTrait, TagTrait {
+        RunCommandTrait::runCommand insteadof BranchTrait, CheckoutTrait, CloneTrait, PullTrait, RevParseTrait, TagTrait;
+        RunCommandTrait::runCommandSilently insteadof BranchTrait, CheckoutTrait, CloneTrait, PullTrait, RevParseTrait, TagTrait;
+    }
 }
