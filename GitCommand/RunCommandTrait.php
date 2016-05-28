@@ -23,16 +23,18 @@ use Symfony\Component\Process\Process;
 trait RunCommandTrait
 {
     /**
-     * @param string $commandLine
+     * @param string   $commandLine
+     * @param int|null $timeout
      *
      * @throws RuntimeException
      *
      * @return string
      */
-    private function runCommand(string $commandLine) : string
+    private function runCommand(string $commandLine, $timeout = 60) : string
     {
         try {
             $process = new Process($commandLine);
+            $process->setTimeout($timeout);
             $process->mustRun();
             $output = $process->getOutput();
         } catch (Exception $exception) {
@@ -43,16 +45,18 @@ trait RunCommandTrait
     }
 
     /**
-     * @param string $commandLine
+     * @param string   $commandLine
+     * @param int|null $timeout
      *
      * @throws RuntimeException
      *
      * @return bool
      */
-    private function runCommandSilently(string $commandLine) : bool
+    private function runCommandSilently(string $commandLine, $timeout = 60) : bool
     {
         try {
             $process = new Process($commandLine);
+            $process->setTimeout($timeout);
             $process->disableOutput();
             $process->mustRun();
         } catch (Exception $exception) {
