@@ -41,13 +41,13 @@ use Git\Git\Git;
 
 $git = new Git;
 // git branch branch-name HEAD
-$git->createBranch('branch-name');
+$git->createBranch('branch-name') : bool;
 // git branch branch-name master
-$git->createBranch('branch-name', 'master');
+$git->createBranch('branch-name', 'master') : bool;
 // git branch -d branch-name
-$git->deleteBranch('branch-name');
+$git->deleteBranch('branch-name') : bool;
 // git branch -D branch-name
-$git->deleteBranch('branch-name', true);
+$git->deleteBranch('branch-name', true) : bool;
 // git branch --all
 $git->listAllBranches() : array;
 // git branch --list
@@ -58,15 +58,20 @@ $git->listLocalBranches('branch*') : array;
 $git->listRemoteBranches() : array;
 
 // git checkout my-existing-branch
-$git->checkout('my-existing-branch');
+$git->checkout('my-existing-branch') : bool;
 
 // git clone -q git@github.com:git-pull-request/git.git
-$git->cloneRepository('git@github.com:git-pull-request/git.git');
+$git->cloneRepository('git@github.com:git-pull-request/git.git') : bool;
 // git clone git@github.com:git-pull-request/git.git directory
-$git->cloneRepository('git@github.com:git-pull-request/git.git', 'directory', '');
+$git->cloneRepository('git@github.com:git-pull-request/git.git', 'directory', '') : bool;
 
 // git pull origin master
-$git->pull('origin', 'master');
+$git->pull('origin', 'master') : bool;
+
+// git rev-parse --show-toplevel
+$git->getProjectRootDir() : string;
+// git rev-parse --is-inside-work-tree
+$git->isInsideWorkTree() : bool;
 
 // git tag
 $git->getTags(); // ex: return [new Version(1, 0, 0), new Version(1, 1, 0)];
