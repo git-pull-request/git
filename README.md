@@ -40,6 +40,23 @@ Usage
 use Git\Git\Git;
 
 $git = new Git;
+// git branch branch-name HEAD
+$git->createBranch('branch-name');
+// git branch branch-name master
+$git->createBranch('branch-name', 'master');
+// git branch -d branch-name
+$git->deleteBranch('branch-name');
+// git branch -D branch-name
+$git->deleteBranch('branch-name', true);
+// git branch --all
+$git->listAllBranches() : array;
+// git branch --list
+$git->listLocalBranches() : array;
+// git branch --list branch*
+$git->listLocalBranches('branch*') : array;
+// git branch --remotes
+$git->listRemoteBranches() : array;
+
 // git tag
 $git->getTags(); // ex: return [new Version(1, 0, 0), new Version(1, 1, 0)];
 $git->getLastTag(); // ex: return new Version(1, 0, 0);
