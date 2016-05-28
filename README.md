@@ -60,6 +60,11 @@ $git->listRemoteBranches() : array;
 // git checkout my-existing-branch
 $git->checkout('my-existing-branch');
 
+// git clone -q git@github.com:git-pull-request/git.git
+$git->cloneRepository('git@github.com:git-pull-request/git.git');
+// git clone git@github.com:git-pull-request/git.git directory
+$git->cloneRepository('git@github.com:git-pull-request/git.git', 'directory', '');
+
 // git tag
 $git->getTags(); // ex: return [new Version(1, 0, 0), new Version(1, 1, 0)];
 $git->getLastTag(); // ex: return new Version(1, 0, 0);
