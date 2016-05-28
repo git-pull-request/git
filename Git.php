@@ -16,6 +16,7 @@ namespace GitPullRequest\Git;
 use GitPullRequest\Git\GitCommand\BranchTrait;
 use GitPullRequest\Git\GitCommand\CheckoutTrait;
 use GitPullRequest\Git\GitCommand\CloneTrait;
+use GitPullRequest\Git\GitCommand\PullTrait;
 use GitPullRequest\Git\GitCommand\TagTrait;
 
 /**
@@ -26,5 +27,6 @@ final class Git
     use BranchTrait;
     use CheckoutTrait;
     use CloneTrait;
+    use PullTrait;
     use TagTrait;
 }
