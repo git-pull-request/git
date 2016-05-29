@@ -51,7 +51,7 @@ git config user.name "Your Name"
 git add file;
 git commit -m "adds file";
 git tag 0.1.0 -m "Adds file";
-git branch branch1;
+git checkout -b branch1 master;
 git add dir/file;
 git commit -m "adds dir/file";
 git tag 0.2.0 -m "Adds file";

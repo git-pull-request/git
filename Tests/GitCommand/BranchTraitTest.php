@@ -49,7 +49,7 @@ final class BranchTraitTest extends PHPUnit_Framework_TestCase
 
     public function testDeleteBranch()
     {
-        static::assertTrue($this->object->deleteBranch('branch1'));
+        static::assertTrue($this->object->deleteBranch('branch2'));
     }
 
     /** @expectedException \GitPullRequest\Git\Exception\RuntimeException */
