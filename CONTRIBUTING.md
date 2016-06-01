@@ -3,15 +3,6 @@ Contributing to git-pull-request/git
 
 Please note that this project is released with a Contributor Code of Conduct (see below). By participating in this project and its community you agree to abide by those terms.
 
-[![Build Status][travis-master-img]][travis-master-url] [![Coverage Status][coveralls-master-img]][coveralls-master-url] [![Scrutinizer Code Quality][scrutinizer-master-img]][scrutinizer-master-url]
-
-[travis-master-img]: https://travis-ci.org/git-pull-request/php-git.svg?branch=master
-[travis-master-url]: https://travis-ci.org/git-pull-request/php-git
-[coveralls-master-img]: https://coveralls.io/repos/github/git-pull-request/php-git/badge.svg?branch=master
-[coveralls-master-url]: https://coveralls.io/github/git-pull-request/php-git?branch=master
-[scrutinizer-master-img]: https://scrutinizer-ci.com/g/git-pull-request/php-git/badges/quality-score.png?b=master
-[scrutinizer-master-url]: https://scrutinizer-ci.com/g/git-pull-request/php-git/?branch=master
-
 Reporting Issues
 ----------------
 
