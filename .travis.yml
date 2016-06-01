@@ -17,7 +17,8 @@ install:
 
 script:
   - mkdir -p build/phpunit
-  - vendor/bin/phpunit
+  - phpunit
 
 after_success:
+  - composer require --dev satooshi/php-coveralls
   - travis_retry php vendor/bin/coveralls -v
