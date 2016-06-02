@@ -19,6 +19,7 @@ use GitPullRequest\Git\GitCommand\CheckoutTrait;
 use GitPullRequest\Git\GitCommand\CloneTrait;
 use GitPullRequest\Git\GitCommand\CommitTrait;
 use GitPullRequest\Git\GitCommand\ConfigTrait;
+use GitPullRequest\Git\GitCommand\LogTrait;
 use GitPullRequest\Git\GitCommand\MergeTrait;
 use GitPullRequest\Git\GitCommand\PullTrait;
 use GitPullRequest\Git\GitCommand\RevParseTrait;
@@ -30,8 +31,8 @@ use GitPullRequest\Git\GitCommand\TagTrait;
  */
 final class Git
 {
-    use RunCommandTrait, AddTrait, BranchTrait, CheckoutTrait, CloneTrait, CommitTrait, ConfigTrait, MergeTrait, PullTrait, RevParseTrait, TagTrait {
-        RunCommandTrait::runCommand insteadof AddTrait, BranchTrait, CheckoutTrait, CloneTrait, CommitTrait, ConfigTrait, MergeTrait, PullTrait, RevParseTrait, TagTrait;
-        RunCommandTrait::runCommandSilently insteadof AddTrait, BranchTrait, CheckoutTrait, CloneTrait, CommitTrait, ConfigTrait, MergeTrait, PullTrait, RevParseTrait, TagTrait;
+    use RunCommandTrait, AddTrait, BranchTrait, CheckoutTrait, CloneTrait, CommitTrait, ConfigTrait, LogTrait, MergeTrait, PullTrait, RevParseTrait, TagTrait {
+        RunCommandTrait::runCommand insteadof AddTrait, BranchTrait, CheckoutTrait, CloneTrait, CommitTrait, ConfigTrait, LogTrait, MergeTrait, PullTrait, RevParseTrait, TagTrait;
+        RunCommandTrait::runCommandSilently insteadof AddTrait, BranchTrait, CheckoutTrait, CloneTrait, CommitTrait, ConfigTrait, LogTrait, MergeTrait, PullTrait, RevParseTrait, TagTrait;
     }
 }
