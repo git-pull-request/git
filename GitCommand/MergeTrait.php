@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace GitPullRequest\Git\GitCommand;
 
 /**
- * PHP abstraction of the <code>git branch</code> command.
+ * PHP abstraction of the <code>git merge</code> command.
  */
 trait MergeTrait
 {
