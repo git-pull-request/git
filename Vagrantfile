@@ -17,7 +17,7 @@ Vagrant.configure(2) do |config|
     echo "Update debian package list"
     sudo apt-get update >/dev/null 2>&1
     echo "Installing some packages"
-    sudo apt-get -y install curl git php7.0-cli php7.0-curl php7.0-intl vim >/dev/null 2>&1
+    sudo apt-get -y install curl git php7.0-cli php7.0-curl php7.0-intl php7.0-xdebug vim >/dev/null 2>&1
     cat >/etc/php/mods-available/custom.ini <<EOF
 date.timezone = 'UTC'
 error_reporting = E_ALL
