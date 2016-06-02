@@ -18,7 +18,8 @@
     },
     "require-dev": {
         "symfony/var-dumper": "^3.0",
-        "symfony/filesystem": "^3.0"
+        "symfony/filesystem": "^3.0",
+        "phpunit/phpunit": "^5.3"
     },
     "minimum-stability": "stable",
     "autoload": {
