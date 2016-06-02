@@ -17,7 +17,6 @@ use Exception;
 use GitPullRequest\Git\Exception\RuntimeException;
 use SemVer\SemVer\Version;
 use SemVer\SemVer\VersionSorter;
-use Symfony\Component\Process\Process;
 
 /**
  * PHP abstraction of the <code>git tag</code> command.
@@ -34,7 +33,7 @@ trait TagTrait
      */
     public function createAnnotatedTag(Version $tag, string $message)
     {
-        $this->runCommandSilently(sprintf('git tag -a %s -m "%s"', (string)$tag, $message));
+        $this->runCommandSilently(sprintf('git tag -a %s -m "%s"', (string) $tag, $message));
     }
 
     /**
@@ -59,7 +58,7 @@ trait TagTrait
     public function getTags()
     {
         try {
-            $output = $this->runCommand('git tag');
+            $output  = $this->runCommand('git tag');
             $tagList = explode(PHP_EOL, trim($output));
         } catch (Exception $exception) {
             throw new RuntimeException($exception->getMessage(), 0, $exception);
