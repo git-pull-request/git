@@ -14,10 +14,13 @@ cache:
 
 install:
   - composer install --dev --no-interaction --no-progress --prefer-dist
+  - mkdir -p build/phpunit
+  - wget http://get.sensiolabs.org/php-cs-fixer.phar -O php-cs-fixer
+  - chmod a+x php-cs-fixer
 
 script:
-  - mkdir -p build/phpunit
   - phpunit
+  - php php-cs-fixer fix --dry-run --verbose --diff
 
 after_success:
   - composer require --dev satooshi/php-coveralls
