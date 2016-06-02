@@ -24,6 +24,19 @@ use Symfony\Component\Process\Process;
  */
 trait TagTrait
 {
+    use RunCommandTrait;
+
+    /**
+     * @param Version $tag
+     * @param string  $message
+     *
+     * @throws \GitPullRequest\Git\Exception\RuntimeException
+     */
+    public function createAnnotatedTag(Version $tag, string $message)
+    {
+        $this->runCommandSilently(sprintf('git tag -a %s -m "%s"', (string)$tag, $message));
+    }
+
     /**
      * @throws RuntimeException
      * @throws \InvalidArgumentException
@@ -46,9 +59,8 @@ trait TagTrait
     public function getTags()
     {
         try {
-            $process = new Process('git tag');
-            $process->mustRun();
-            $tagList = explode(PHP_EOL, trim($process->getOutput()));
+            $output = $this->runCommand('git tag');
+            $tagList = explode(PHP_EOL, trim($output));
         } catch (Exception $exception) {
             throw new RuntimeException($exception->getMessage(), 0, $exception);
         }

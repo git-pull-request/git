@@ -38,6 +38,24 @@ final class TagTraitTest extends PHPUnit_Framework_TestCase
         $this->cleanWorkingDirectory();
     }
 
+    public function testCreateAnnotatedTag()
+    {
+        $version = new Version(1,0,0);
+        $this->object->createAnnotatedTag($version, 'version 1.0.0');
+        $process = new Process('git tag');
+        $process->mustRun();
+
+        $found = false;
+        $output = explode(PHP_EOL, $process->getOutput());
+        foreach ($output as $line) {
+            if (trim($line) === '1.0.0') {
+                $found = true;
+            }
+        }
+
+        static::assertTrue($found, 'Tag 1.0.0 must be found');
+    }
+
     public function testGetLastTag()
     {
         static::assertEquals(new Version(0, 2, 0), $this->object->getLastTag());
